@@ -19,17 +19,13 @@ public class OrderGenerator {
     public Order generateOrder(int customerId, int orderId) {
         Map<Product, Integer> productsInOrder = new HashMap<>();
 
-        // Random number of products in this order (1 to 5)
         int numItems = Math.min(ThreadLocalRandom.current().nextInt(1, 6), catalog.size());
 
         for (int i = 0; i < numItems; i++) {
-            // Pick a random product by index
             Product product = catalog.get(ThreadLocalRandom.current().nextInt(catalog.size()));
 
-            // Random quantity 1-5
             int quantity = ThreadLocalRandom.current().nextInt(1, 6);
 
-            // Add or update quantity in order map
             productsInOrder.merge(product, quantity, Integer::sum);
         }
 

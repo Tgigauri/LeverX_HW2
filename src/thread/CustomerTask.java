@@ -25,7 +25,7 @@ public class CustomerTask implements Runnable {
             Order order = orderGenerator.generateOrder(customerId, orderId);
 
             try {
-                orderQueue.put(order); // add order to shared queue
+                orderQueue.put(order); 
                 System.out.println("Customer " + customerId + " placed Order " + orderId);
 
                 Utils.randomSleep(500);

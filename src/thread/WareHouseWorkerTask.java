@@ -20,13 +20,10 @@ public class WareHouseWorkerTask implements Runnable {
     public void run() {
         while (true) {
             try {
-                // Take next order from queue (blocks if empty)
                 Order order = orderQueue.take();
 
-                // Process the order (deduct stock from warehouse)
                 processOrder(order);
 
-                // Add the order to processedOrders list
                 processedOrders.add(order);
 
             } catch (InterruptedException e) {
