@@ -29,7 +29,6 @@ public class OrderGenerator {
             productsInOrder.merge(product, quantity, Integer::sum);
         }
 
-        // Calculate total price
         double totalPrice = productsInOrder.entrySet().stream()
                 .mapToDouble(e -> e.getKey().getPrice() * e.getValue())
                 .sum();

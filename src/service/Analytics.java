@@ -16,14 +16,14 @@ public class Analytics {
 
 
     public long getTotalOrders() {
-        return processedOrders.size(); // 
+        return processedOrders.size();
     }
 
 
     public double getTotalProfit() {
         return processedOrders.stream()
-                .mapToDouble(Order::getTotalPrice) 
-                .sum();                             
+                .mapToDouble(Order::getTotalPrice)
+                .sum();
     }
 
 
@@ -41,9 +41,9 @@ public class Analytics {
         }
 
         return productSales.entrySet().stream()
-                .sorted((e1, e2) -> e2.getValue() - e1.getValue()) 
-                .limit(topN)                                        
-                .collect(Collectors.toList());                      
+                .sorted((e1, e2) -> e2.getValue() - e1.getValue())
+                .limit(topN)
+                .collect(Collectors.toList());
     }
 
     public void printReport() {

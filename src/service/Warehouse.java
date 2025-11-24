@@ -3,7 +3,6 @@ package service;
 
 import model.Product;
 
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Warehouse {
@@ -16,7 +15,7 @@ public class Warehouse {
     }
 
     public void add(Product p, int quantity) {
-        inventory.merge(p, quantity, Integer::sum); // add specified quantity
+        inventory.merge(p, quantity, Integer::sum);
     }
 
     public boolean isAvailable(Product p, int quantity) {
@@ -30,14 +29,5 @@ public class Warehouse {
         }) != null && inventory.get(product) != null && inventory.get(product) <= inventory.get(product) + quantity;
     }
 
-    public Map<Product, Integer> getInventorySnapshot() {
-        return Map.copyOf(inventory);
-    }
 
-
-    public void printInventory() {
-        System.out.println("--- Warehouse Inventory ---");
-        inventory.forEach((product, qty) ->
-                System.out.println(product.getProductName() + " | Qty: " + qty));
-    }
 }
